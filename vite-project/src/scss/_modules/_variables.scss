@@ -1,0 +1,36 @@
+// color
+$baseGreen: #009944;
+$textBlack: #363636;
+$bgGrey: #F2F2F2;
+
+
+// breakpoints
+$breakpoints: (
+	'xl': (max-width: 1279px),
+	'lg': (max-width: 1023px),
+	'mdmin': (min-width: 768px),
+	'md': (max-width: 767px),
+	'sm': (max-width: 639px),
+	'xs': (max-width: 339px),
+) !default;
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}";
+  }
+}
+/* 使い方：
+.hoge {
+	font-size: 12px;
+	@include var.responsive(md) {
+		font-size: 14px;
+	}
+}
+*/

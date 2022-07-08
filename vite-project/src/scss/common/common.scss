@@ -1,0 +1,9 @@
+@use '../_modules/index';
+
+@use '../_modules/_variables' as v;
+
+.text {
+	color: v.$textBlack;
+	font-size: 3rem;
+	text-align: center;
+}
