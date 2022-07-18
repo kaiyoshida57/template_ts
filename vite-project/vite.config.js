@@ -14,17 +14,17 @@ export default defineConfig({
 		// 圧縮
 		viteImagemin({
 			gifsicle: {
-				optimizationLevel: 7,
+				optimizationLevel: 2,
 				interlaced: false,
 			},
 			optipng: {
-				optimizationLevel: 7,
+				optimizationLevel: 2,
 			},
 			mozjpeg: {
-				quality: 20,
+				quality: 80,
 			},
 			pngquant: {
-				quality: [0.8, 0.9],
+				quality: [0.85, 0.95],
 				speed: 4,
 			},
 			svgo: {
